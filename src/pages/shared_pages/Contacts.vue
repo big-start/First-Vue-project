@@ -1,16 +1,9 @@
 <template>
-  <div>
-    <p>Contact</p>
-    <p>Contact</p>
-    <p>Contact</p>
-    <p>Contact</p>
-    <p>Contact</p>
-    <p>Contact</p>
-    <p>Contact</p>
-    <p>Contact</p>
-    <p>Contact</p>
-    <p>Contact</p>
-  </div>
+<div>
+<p>Contact</p>
+<p>Contact</p>
+<p>Contact</p>
+</div>
 </template>
 
 <script>

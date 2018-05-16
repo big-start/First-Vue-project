@@ -1,9 +1,9 @@
 <template>
-  <div class="menu">
-	<router-link tag="a" to="/">Home</router-link>
-	<router-link tag="a" to="/Movies">Movies</router-link>
-	<router-link tag="a" to="/Contacts">Contacts</router-link>
-  </div>
+<div class="menu">
+<router-link tag="a" to="/">Home</router-link>
+<router-link tag="a" to="/Movies">Movies</router-link>
+<router-link tag="a" to="/Contacts">Contacts</router-link>
+</div>
 </template>
 
 <script>
