@@ -1,9 +1,7 @@
 <template>
-<div>
-<p>Contact</p>
-<p>Contact</p>
-<p>Contact</p>
-</div>
+	<div class="contacts">
+		<p class="contacts__item">Сontacts</p>
+	</div>
 </template>
 
 <script>
@@ -11,7 +9,5 @@
 </script>
 
 <style>
-p {
-	margin: 200px;
-}
+
 </style>
