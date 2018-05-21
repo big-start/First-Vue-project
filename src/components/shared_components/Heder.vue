@@ -1,12 +1,12 @@
 <template>
-	<div class="header">
+	<div class="menu_logo">
 		<div class="logo">
 			<router-link class="logo__item" tag="a" to="/">Logo</router-link>
 		</div>
 		<div class="menu">
-			<router-link class="menu_item" tag="a" to="/">Home</router-link>
-			<router-link class="menu_item" tag="a" to="/Movies">Movies</router-link>
-			<router-link class="menu_item" tag="a" to="/Contacts">Contacts</router-link>
+			<router-link class="menu__item" tag="a" to="/">Home</router-link>
+			<router-link class="menu__item" tag="a" to="/Movies">Movies</router-link>
+			<router-link class="menu__item" tag="a" to="/Contacts">Contacts</router-link>
 		</div>
 		<div class="search-block">
 			<form action="">
@@ -20,7 +20,7 @@
 </script>
 
 <style scoped>
-.header {
+.menu_logo {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -45,10 +45,7 @@
 	font-weight: bold;
 	text-transform: uppercase;
 }
-.menu {
-
-}
-.menu_item {
+.menu__item {
 	display: inline-block;
 	margin: 0 25px 0 0;
 	text-transform: uppercase;
