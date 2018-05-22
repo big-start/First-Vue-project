@@ -2,21 +2,23 @@ import Vue from 'vue'
 import VueResource from 'vue-resource'
 import App from './App.vue'
 import router from './router/router'
+import store from './store/store'
 
 Vue.use(VueResource)
 
+Vue.http.options.root = 'https://api.themoviedb.org/3/';
+
 Vue.config.productionTip = false
+
 
 new Vue({
 	el: '#app',
 	router,
-	render: h => h(App),
-
-	data: {
-		endpoint: 'https://api.themoviedb.org/3/movie/550?api_key=4e4be382df786f26de9d8aa30eded5eb'
-	},
-	created: function(){
-		this.post()
-	}
+	store,
+	render: h => h(App)
 })
+
+
+
+
 

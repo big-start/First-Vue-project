@@ -1,12 +1,11 @@
 <template>
 	<div class="menu_logo">
 		<div class="logo">
-			<router-link class="logo__item" tag="a" to="/">Logo</router-link>
+			<router-link class="logo__item" tag="a" to="/" >Logo</router-link>
 		</div>
 		<div class="menu">
 			<router-link class="menu__item" tag="a" to="/">Home</router-link>
-			<router-link class="menu__item" tag="a" to="/Movies">Movies</router-link>
-			<router-link class="menu__item" tag="a" to="/Contacts">Contacts</router-link>
+			<router-link class="menu__item" tag="a" to="/Genres">Genres</router-link>
 		</div>
 		<div class="search-block">
 			<form action="">
@@ -17,6 +16,7 @@
 </template>
 
 <script>
+
 </script>
 
 <style scoped>
