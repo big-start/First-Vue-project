@@ -1,13 +1,21 @@
 <template>
-	<div class="genres">
-		<button @click="getList">f</button>
-	</div>
+  <div class="genres">
+    <button @click="getListGenres">G</button>
+    <button @click="getListPopular">P</button>
+    <button @click="getListUpcoming">U</button>
+  </div>
 </template>
 
 <script>
 export default {
   methods: {
-    getList() {
+    getListGenres() {
+      this.$store.dispatch('getListGenres');
+    },
+    getListPopular() {
+      this.$store.dispatch('getListPopular');
+    },
+    getListUpcoming() {
       this.$store.dispatch('getListUpcoming');
     }
   }
@@ -16,8 +24,8 @@ export default {
 
 <style>
 .genres {
-	display: flex;
-	justify-content: space-between;
-	padding: 10px 0;        
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
 }
 </style>
