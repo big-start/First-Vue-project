@@ -24,7 +24,7 @@
   justify-content: space-between;
   align-items: center;
   width: 960px;
-  margin: 0 auto; 
+  margin: 0 auto;
   padding: 15px 10px;
   background: #1451ba;
   border-bottom-left-radius: 8px;

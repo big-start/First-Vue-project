@@ -6,19 +6,13 @@ import store from './store/store'
 
 Vue.use(VueResource)
 
-Vue.http.options.root = 'https://api.themoviedb.org/3/';
+Vue.http.options.root = 'https://api.themoviedb.org/3/'
 
 Vue.config.productionTip = false
 
-
 new Vue({
-	el: '#app',
-	router,
-	store,
-	render: h => h(App)
+  el: '#app',
+  router,
+  store,
+  render: h => h(App)
 })
-
-
-
-
-

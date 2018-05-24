@@ -9,14 +9,14 @@
 <script>
 export default {
   methods: {
-    getListGenres() {
-      this.$store.dispatch('getListGenres');
+    getListGenres () {
+      this.$store.dispatch('getListGenres')
     },
-    getListPopular() {
-      this.$store.dispatch('getListPopular');
+    getListPopular () {
+      this.$store.dispatch('getListPopular')
     },
-    getListUpcoming() {
-      this.$store.dispatch('getListUpcoming');
+    getListUpcoming () {
+      this.$store.dispatch('getListUpcoming')
     }
   }
 }

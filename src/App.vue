@@ -2,11 +2,11 @@
   <div class="app">
     <app-header></app-header>
     <router-view></router-view>
-  </div> 
+  </div>
 </template>
 
 <script>
-import	Heder from '@/components/shared_components/Heder'
+import Heder from '@/components/shared_components/Heder'
 
 export default{
   components: {

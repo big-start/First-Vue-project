@@ -2,9 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import $ajax from '@/api/api'
 
-
-
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
@@ -13,32 +11,31 @@ export default new Vuex.Store({
     resultsUpcoming: []
   },
   mutations: {
-    setMoviesGenres( state, data ) {
-      state.resultsGenres = data;
+    setMoviesGenres (state, data) {
+      state.resultsGenres = data
     },
-    setMoviesPopular( state, data ) {
-      state.resultsPopular = data;
+    setMoviesPopular (state, data) {
+      state.resultsPopular = data
     },
-    setMoviesUpcoming( state, data ) {
-      state.resultsUpcoming = data;
+    setMoviesUpcoming (state, data) {
+      state.resultsUpcoming = data
     }
   },
   actions: {
-    getListGenres({ commit }) {
+    getListGenres ({ commit }) {
       $ajax.getListGenres().then((data) => {
-        commit('setMoviesGenres', data );
+        commit('setMoviesGenres', data)
       })
     },
-    getListPopular({ commit }) {
+    getListPopular ({ commit }) {
       $ajax.getListPopular().then((data) => {
-        commit('setMoviesPopular', data );
+        commit('setMoviesPopular', data)
       })
     },
-    getListUpcoming({ commit }) {
+    getListUpcoming ({ commit }) {
       $ajax.getListUpcoming().then((data) => {
-        commit('setMoviesUpcoming', data );
+        commit('setMoviesUpcoming', data)
       })
     }
   }
-});
-
+})
