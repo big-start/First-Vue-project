@@ -18,7 +18,7 @@ export default new Vuex.Store({
       state.resultsPopular = data;
     },
     setMoviesUpcoming( state, data ) {
-      state.results = data;
+      state.resultsUpcoming = data;
     }
   },
   actions: {
@@ -33,7 +33,7 @@ export default new Vuex.Store({
       });
     },
     getListUpcoming({ commit }, data) {
-      Vue.http.get('movie/popular?api_key=4e4be382df786f26de9d8aa30eded5eb', data).then(function(response) {
+      Vue.http.get('movie/upcoming?api_key=4e4be382df786f26de9d8aa30eded5eb', data).then(function(response) {  
         commit('setMoviesUpcoming', response.body.results);
       });
     }
