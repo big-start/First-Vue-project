@@ -1,6 +1,8 @@
 body {
 	padding: 0;
-	margin: 0;	
-	background: #c4d3ed;
+	margin: 0;
+	max-width: 980px;
+	margin: 0 auto;
+	background: #c4d3ed;	
 }
 
