@@ -5,7 +5,7 @@
 		</div>
 		<div class="menu">
 			<router-link class="menu__item" tag="a" to="/">Home</router-link>
-			<router-link class="menu__item" tag="a" to="/Genres">Genres</router-link>
+			<router-link class="menu__item" tag="a" to="/genres">Genres</router-link>
 		</div>
 		<div class="search-block">
 			<form action="">
