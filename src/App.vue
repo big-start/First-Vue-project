@@ -1,17 +1,17 @@
 <template>
-	<div class="app">
-		<app-header></app-header>
-		<router-view></router-view>
-	</div> 
+  <div class="app">
+    <app-header></app-header>
+    <router-view></router-view>
+  </div> 
 </template>
 
 <script>
 import	Heder from '@/components/shared_components/Heder'
 
 export default{
-	components: {
-		appHeader: Heder
-	}
+  components: {
+    appHeader: Heder
+  }
 }
 </script>
 

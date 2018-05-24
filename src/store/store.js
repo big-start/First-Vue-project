@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import $ajax from '@/api/api'
+
 
 
 Vue.use(Vuex);
@@ -22,20 +24,20 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    getListGenres({ commit }, data) {
-      Vue.http.get('genre/movie/list?api_key=4e4be382df786f26de9d8aa30eded5eb', data).then(function(response) {
-        commit('setMoviesGenres', response.body.genres);
-      });
+    getListGenres({ commit }) {
+      $ajax.getListGenres().then((data) => {
+        commit('setMoviesGenres', data );
+      })
     },
-    getListPopular({ commit }, data) {
-      Vue.http.get('movie/popular?api_key=4e4be382df786f26de9d8aa30eded5eb', data).then(function(response) {
-        commit('setMoviesPopular', response.body.results);
-      });
+    getListPopular({ commit }) {
+      $ajax.getListPopular().then((data) => {
+        commit('setMoviesPopular', data );
+      })
     },
-    getListUpcoming({ commit }, data) {
-      Vue.http.get('movie/upcoming?api_key=4e4be382df786f26de9d8aa30eded5eb', data).then(function(response) {  
-        commit('setMoviesUpcoming', response.body.results);
-      });
+    getListUpcoming({ commit }) {
+      $ajax.getListUpcoming().then((data) => {
+        commit('setMoviesUpcoming', data );
+      })
     }
   }
 });
