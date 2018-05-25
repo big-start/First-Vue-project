@@ -25,7 +25,7 @@ export default ({
   flex-direction: column;
 }
 .genres__item {
-  max-width: 100%;
+  width: 100%;
   padding: 8px 20px;
   margin-bottom: 3px;
   text-align: center;

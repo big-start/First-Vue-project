@@ -7,10 +7,12 @@
 
 <script>
 import Heder from '@/components/shared_components/Heder'
+import Genres from '@/components/shared_components/Genres'
 
 export default{
   components: {
-    appHeader: Heder
+    appHeader: Heder,
+    appGenres: Genres
   }
 }
 </script>

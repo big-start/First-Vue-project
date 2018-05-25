@@ -6,6 +6,8 @@
     <div class="menu">
       <router-link class="menu__item" tag="a" to="/">Home</router-link>
       <router-link class="menu__item" tag="a" to="/genres">Genres</router-link>
+      <router-link class="menu__item" tag="a" to="/popular">Popular</router-link>
+      <router-link class="menu__item" tag="a" to="/upcoming">Upcoming</router-link>
     </div>
     <div class="search-block">
       <form action="">
@@ -23,10 +25,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 960px;
   margin: 0 auto;
   padding: 15px 10px;
-  background: #1451ba;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
@@ -46,7 +46,7 @@
 }
 .menu__item {
   display: inline-block;
-  margin: 0 25px 0 0;
+  margin: 0 45px 0 0;
   text-transform: uppercase;
   text-decoration: none;
   color: #fff;

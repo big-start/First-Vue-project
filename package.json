@@ -38,8 +38,7 @@
       "node": true
     },
     "rules": {
-      "no-new": ["off"],
-      "semi": "error"
+      "no-new": ["off"]
     },
     "parserOptions": {
       "parser": "babel-eslint"
