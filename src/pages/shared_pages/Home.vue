@@ -1,10 +1,9 @@
 <template>
-  <div>
+  <div class="app">
   </div>
 </template>
 
 <script>
-
 </script>
 
 <style>
