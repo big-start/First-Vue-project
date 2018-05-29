@@ -5,11 +5,11 @@
     </div>
     <div class="menu">
       <router-link class="menu__item" tag="a" to="/">Home</router-link>
-      <router-link class="menu__item" tag="a" to="/genres">Genres</router-link>
+      <router-link class="menu__item" tag="a" to="/upcoming">Upcoming</router-link>
     </div>
     <div class="search-block">
       <form action="">
-        <input type="text">
+        <input type="text" placeholder="Search">
       </form>
     </div>
   </div>
@@ -26,7 +26,6 @@
   width: 960px;
   margin: 0 auto;
   padding: 15px 10px;
-  background: #1451ba;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
@@ -46,7 +45,7 @@
 }
 .menu__item {
   display: inline-block;
-  margin: 0 25px 0 0;
+  margin: 0 45px 0 0;
   text-transform: uppercase;
   text-decoration: none;
   color: #fff;
@@ -56,8 +55,8 @@
 }
 .search-block input {
   height: 25px;
-  color: #fff;
-  background: #8b929e;
+  padding: 0 10px;
+  color: #000;
   border: 1px solid #506fa0;
   border-radius: 4px;
 }

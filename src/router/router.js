@@ -5,7 +5,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history', // hide /#/ from URL
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -13,9 +13,9 @@ export default new Router({
       component: () => import('@/pages/shared_pages/Home')
     },
     {
-      path: '/genres',
-      name: 'Genres',
-      component: () => import('@/pages/shared_pages/Genres')
+      path: '/upcoming',
+      name: 'Upcoming',
+      component: () => import('@/pages/shared_pages/Upcoming')
     }
   ]
 })

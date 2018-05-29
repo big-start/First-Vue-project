@@ -1,8 +1,6 @@
 body {
-	padding: 0;
-	margin: 0;
-	max-width: 980px;
-	margin: 0 auto;
-	background: #c4d3ed;	
+  padding: 0;
+  margin: 0 auto;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(59,58,60,1) 41%, rgba(0,212,255,1) 100%);
 }
-
