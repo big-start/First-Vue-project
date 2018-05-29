@@ -6,7 +6,7 @@ export default {
   getListGenres () {
     return new Promise((resolve, reject) => {
       Vue.http.get('genre/movie/list?' + API_KEY).then((response) => {
-        resolve(response.body.genres)
+        resolve(response)
       }).catch((error) => {
         reject(error)
       })
@@ -15,7 +15,7 @@ export default {
   getListPopular () {
     return new Promise((resolve, reject) => {
       Vue.http.get('movie/popular?' + API_KEY).then((response) => {
-        resolve(response.body)
+        resolve(response)
       }).catch((error) => {
         reject(error)
       })
@@ -24,7 +24,7 @@ export default {
   getListUpcoming () {
     return new Promise((resolve, reject) => {
       Vue.http.get('movie/upcoming?' + API_KEY).then((response) => {
-        resolve(response.body.results)
+        resolve(response)
       }).catch((error) => {
         reject(error)
       })

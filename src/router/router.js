@@ -13,19 +13,9 @@ export default new Router({
       component: () => import('@/pages/shared_pages/Home')
     },
     {
-      path: '/popular',
-      name: 'Popular',
-      component: () => import('@/pages/shared_pages/Popular')
-    },
-    {
       path: '/upcoming',
       name: 'Upcoming',
       component: () => import('@/pages/shared_pages/Upcoming')
-    },
-    {
-      path: '/genres',
-      name: 'Genres',
-      component: () => import('@/pages/shared_pages/Genres')
     }
   ]
 })

@@ -11,19 +11,19 @@ export default new Vuex.Store({
     resultsUpcoming: []
   },
   getters: {
-    getUpcoming(state) {
-      return state.resultsPopular;
+    getUpcoming (state) {
+      return state.resultsPopular
     }
   },
   mutations: {
     setMoviesGenres (state, data) {
-      state.resultsGenres = data
+      state.resultsGenres = data.body.genres
     },
     setMoviesPopular (state, data) {
-      state.resultsPopular = data.results
+      state.resultsPopular = data.body.results
     },
     setMoviesUpcoming (state, data) {
-      state.resultsUpcoming = data
+      state.resultsUpcoming = data.body.results
     }
   },
   actions: {

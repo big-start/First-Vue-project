@@ -1,6 +1,6 @@
 <template>
   <div class="genres__list">
-    <div class="genres__item" v-for='genre in genres'>
+    <div class="genres__item" v-for="genre in genres">
       <span class="genres__name">{{ genre.name }}</span>
     </div>
   </div>
@@ -22,11 +22,13 @@ export default ({
 <style>
 .genres__list {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 980px;
+  margin: 0 auto;
 }
 .genres__item {
-  width: 100%;
-  padding: 8px 20px;
+  padding: 8px 10px;
   margin-bottom: 3px;
   text-align: center;
   font-size: 20px;
