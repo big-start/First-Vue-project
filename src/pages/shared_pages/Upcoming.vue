@@ -1,6 +1,6 @@
 <template>
 <div class="upcoming">
-<app-genres></app-genres>
+  <app-genres></app-genres>
   <div class="upcoming__wrapper">
     <router-link  class="upcoming_post"
                   v-for="upcoming in upcomings"

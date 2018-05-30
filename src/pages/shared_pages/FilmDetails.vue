@@ -1,14 +1,14 @@
 <template>
-<div class="filmDetails">
-  <div class="filmDetails__inner">
-    <div class="img_film">
+<div class="film-details">
+  <div class="film-details__inner">
+    <div class="film-details__img">
       <img :src="imgUrl(filmDetail.backdrop_path)"/>
     </div>
     <div class="content-film">
-      <span class="name-film">{{ filmDetail.original_title }}</span>
-      <span class="vote_average-film">{{ filmDetail.vote_average }}</span>
-      <span class="genres-film" v-for="item in filmDetail.genres">{{ item.name }}</span>
-      <span class="release_date-film">{{ filmDetail.release_date }}</span>
+      <span class="film-details__name">{{ filmDetail.original_title }}</span>
+      <span class="film-details__vote-average">{{ filmDetail.vote_average }}</span>
+      <span class="film-details__genres" v-for="item in filmDetail.genres">{{ item.name }}</span>
+      <span class="film-details__release">{{ filmDetail.release_date }}</span>
     </div>
   </div>
   <p class="overview-film">{{ filmDetail.overview }}</p>
@@ -33,7 +33,7 @@ export default ({
 })
 </script>
 <style>
-.filmDetails {
+.film-details {
   position: relative;
   padding: 15px;
   margin: 0 auto;
@@ -42,24 +42,24 @@ export default ({
   border: 2px solid #000;
   border-radius: 5px;
 }
-.filmDetails__inner {
+.film-details__inner {
   display: flex;
 }
 .content-film {
   display: flex;
   flex-direction: column;
 }
-.img_film {
+.film-details__img {
   margin-right: 15px;
 }
-.name-film {
+.film-details__name {
   font-size: 25px;
 }
-.vote_average-film {
+.film-details__vote-average {
   color: #f00;
   font-weight: bold;
 }
-.genres-film {
+.film-details__genres {
   padding: 2px 3px;
   margin-bottom: 2px;
   text-align: center;
@@ -69,7 +69,7 @@ export default ({
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(59,58,60,1) 41%, rgba(0,212,255,1) 100%);
   border: 1px solid #2f3746;
 }
-.release_date-film {
+.film-details__release {
   position: absolute;
   top: 0;
   right: 0;
