@@ -8,13 +8,10 @@ export default new Vuex.Store({
   state: {
     resultsGenres: [],
     resultsPopular: [],
-    resultsUpcoming: []
+    resultsUpcoming: [],
+    resultsFilm: []
   },
-  getters: {
-    getUpcoming (state) {
-      return state.resultsPopular
-    }
-  },
+
   mutations: {
     setMoviesGenres (state, data) {
       state.resultsGenres = data.body.genres
@@ -24,6 +21,9 @@ export default new Vuex.Store({
     },
     setMoviesUpcoming (state, data) {
       state.resultsUpcoming = data.body.results
+    },
+    setFilmDetails (state, data) {
+      state.resultsFilm = data.body
     }
   },
   actions: {
@@ -40,6 +40,11 @@ export default new Vuex.Store({
     getListUpcoming ({ commit }) {
       $ajax.getListUpcoming().then((data) => {
         commit('setMoviesUpcoming', data)
+      })
+    },
+    getFilmDetails ({ commit }, id) {
+      $ajax.getFilm(id).then((data) => {
+        commit('setFilmDetails', data)
       })
     }
   }

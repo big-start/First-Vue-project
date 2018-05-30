@@ -16,6 +16,11 @@ export default new Router({
       path: '/upcoming',
       name: 'Upcoming',
       component: () => import('@/pages/shared_pages/Upcoming')
+    },
+    {
+      path: '/film/:id',
+      name: 'FilmDetails',
+      component: () => import('@/pages/shared_pages/FilmDetails')
     }
   ]
 })

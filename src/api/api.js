@@ -29,5 +29,14 @@ export default {
         reject(error)
       })
     })
+  },
+  getFilm (id) {
+    return new Promise((resolve, reject) => {
+      Vue.http.get(`movie/${id}?${API_KEY}`).then((response) => {
+        resolve(response)
+      }).catch((error) => {
+        reject(error)
+      })
+    })
   }
 }

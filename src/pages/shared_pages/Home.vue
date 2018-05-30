@@ -1,24 +1,37 @@
 <template>
-<div class="home">
-  <div class="post" v-for="popular in populars">
-    <div class="img-post">
-      <img :src="'https://image.tmdb.org/t/p/w500/' + popular.backdrop_path"/>
-    </div>
-    <div class="content-post">
-      <span class="name-post">{{ popular.original_title }}</span>
-      <span class="vote_average-post">{{ popular.vote_average }}</span>
-      <p class="overview-post">{{ popular.overview }}</p>
-    </div>
+  <div class="home">
+    <app-genres></app-genres>
+    <router-link v-for="popular in populars"
+                 :to="'/film/' + popular.id"
+                 class="post">
+      <div class="post__img">
+        <img :src="imgUrl(popular.backdrop_path)"/>
+      </div>
+      <div class="post-content">
+        <span class="post-content__name">{{ popular.original_title }}</span>
+        <span class="post-content__vote-average">{{ popular.vote_average }}</span>
+        <p class="post-content__overview">{{ popular.overview }}</p>
+      </div>
+    </router-link>
   </div>
-</div>
 </template>
 
 <script>
+import Genres from '@/components/shared_components/Genres'
+
 export default ({
   computed: {
     populars () {
       return this.$store.state.resultsPopular
     }
+  },
+  methods: {
+    imgUrl (path) {
+      return 'https://image.tmdb.org/t/p/w500/' + path
+    }
+  },
+  components: {
+    appGenres: Genres
   },
   beforeMount () {
     this.$store.dispatch('getListPopular')
@@ -26,6 +39,9 @@ export default ({
 })
 </script>
 <style>
+a {
+  text-decoration: none;
+}
 .post {
   display: flex;
   justify-content: space-between;
@@ -35,21 +51,18 @@ export default ({
   border: 2px solid #222;
   border-radius: 10px;
 }
-
-.img-post {
+.post__img {
   margin-right: 20px;
 }
-
-.content-post {
+.post-content {
   width: 80%;
+  color: #000;
 }
-
-.name-post {
+.post-content__name {
   display: block;
   font-size: 25px;
 }
-
-.vote_average-post {
+.post-content__vote-average {
   color: #f00;
   font-weight: bold;
 }
