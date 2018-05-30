@@ -1,27 +1,40 @@
 <template>
 <div class="upcoming">
+<app-genres></app-genres>
   <div class="upcoming__wrapper">
-    <div class="upcoming_post" v-for="upcoming in upcomings">
+    <router-link  class="upcoming_post"
+                  v-for="upcoming in upcomings"
+                  :to="'/film/' + upcoming.id">
       <div class="upcoming_inner">
         <span class="upcoming_name">{{ upcoming.original_title }}</span>
         <div class="upcoming_img">
-          <img :src="'https://image.tmdb.org/t/p/w500/' + upcoming.backdrop_path"/>
+          <img :src="imgUrl(upcoming.backdrop_path)"/>
         </div>
       </div>
       <div class="content-upcoming">
         <p class="overview-post">{{ upcoming.overview }}</p>
       </div>
-    </div>
+    </router-link>
   </div>
 </div>
 </template>
 
 <script>
+import Genres from '@/components/shared_components/Genres'
+
 export default ({
   computed: {
     upcomings () {
       return this.$store.state.resultsUpcoming
     }
+  },
+  methods: {
+    imgUrl (path) {
+      return 'https://image.tmdb.org/t/p/w500/' + path
+    }
+  },
+  components: {
+    appGenres: Genres
   },
   beforeMount () {
     this.$store.dispatch('getListUpcoming')
