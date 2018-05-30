@@ -4,13 +4,13 @@
     <router-link v-for="popular in populars"
                  :to="'/film/' + popular.id"
                  class="post">
-      <div class="img-post">
+      <div class="post__img">
         <img :src="imgUrl(popular.backdrop_path)"/>
       </div>
-      <div class="content-post">
-        <span class="name-post">{{ popular.original_title }}</span>
-        <span class="vote_average-post">{{ popular.vote_average }}</span>
-        <p class="overview-post">{{ popular.overview }}</p>
+      <div class="post-content">
+        <span class="post-content__name">{{ popular.original_title }}</span>
+        <span class="post-content__vote-average">{{ popular.vote_average }}</span>
+        <p class="post-content__overview">{{ popular.overview }}</p>
       </div>
     </router-link>
   </div>
@@ -51,18 +51,18 @@ a {
   border: 2px solid #222;
   border-radius: 10px;
 }
-.img-post {
+.post__img {
   margin-right: 20px;
 }
-.content-post {
+.post-content {
   width: 80%;
   color: #000;
 }
-.name-post {
+.post-content__name {
   display: block;
   font-size: 25px;
 }
-.vote_average-post {
+.post-content__vote-average {
   color: #f00;
   font-weight: bold;
 }

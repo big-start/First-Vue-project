@@ -11,7 +11,7 @@
       <span class="film-details__release">{{ filmDetail.release_date }}</span>
     </div>
   </div>
-  <p class="overview-film">{{ filmDetail.overview }}</p>
+  <p class="film-details__overview">{{ filmDetail.overview }}</p>
 </div>
 </template>
 
