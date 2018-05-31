@@ -4,20 +4,16 @@
     <router-link v-for="popular in populars"
                  :to="'/film/' + popular.id"
                  class="post">
-      <div class="post__img">
-        <img :src="imgUrl(popular.backdrop_path)"/>
-      </div>
-      <div class="post-content">
-        <span class="post-content__name">{{ popular.original_title }}</span>
-        <span class="post-content__vote-average">{{ popular.vote_average }}</span>
-        <p class="post-content__overview">{{ popular.overview }}</p>
-      </div>
+      <film :item="popular" class="post__home"></film>
     </router-link>
+    <app-Pagination></app-Pagination>
   </div>
 </template>
 
 <script>
 import Genres from '@/components/shared_components/Genres'
+import Pagination from '@/components/shared_components/Pagination'
+import Film from '@/components/shared_components/Film-component'
 
 export default ({
   computed: {
@@ -25,45 +21,29 @@ export default ({
       return this.$store.state.resultsPopular
     }
   },
-  methods: {
-    imgUrl (path) {
-      return 'https://image.tmdb.org/t/p/w500/' + path
-    }
-  },
   components: {
-    appGenres: Genres
+    appGenres: Genres,
+    appPagination: Pagination,
+    film: Film
   },
   beforeMount () {
-    this.$store.dispatch('getListPopular')
+    this.$store.commit('startWaiter')
+    this.$store.dispatch('getListPopular').then(() => {
+      this.$store.commit('stopWaiter')
+    })
   }
 })
 </script>
+
 <style>
-a {
-  text-decoration: none;
-}
 .post {
-  display: flex;
-  justify-content: space-between;
   margin: 0 15px 10px;
   padding: 15px 10px;
   background: #fff;
   border: 2px solid #222;
   border-radius: 10px;
 }
-.post__img {
-  margin-right: 20px;
-}
-.post-content {
-  width: 80%;
-  color: #000;
-}
-.post-content__name {
-  display: block;
-  font-size: 25px;
-}
-.post-content__vote-average {
-  color: #f00;
-  font-weight: bold;
+.post__home {
+  display: flex;
 }
 </style>

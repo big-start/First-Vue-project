@@ -12,9 +12,9 @@ export default {
       })
     })
   },
-  getListPopular () {
+  getListPopular (page) {
     return new Promise((resolve, reject) => {
-      Vue.http.get('movie/popular?' + API_KEY).then((response) => {
+      Vue.http.get(`movie/popular?${API_KEY}&page=${page}`).then((response) => {
         resolve(response)
       }).catch((error) => {
         reject(error)

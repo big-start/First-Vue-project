@@ -28,7 +28,10 @@ export default ({
     }
   },
   beforeMount () {
-    this.$store.dispatch('getFilmDetails', this.$route.params.id)
+    this.$store.commit('startWaiter')
+    this.$store.dispatch('getFilmDetails', this.$route.params.id).then(() => {
+      this.$store.commit('stopWaiter')
+    })
   }
 })
 </script>
