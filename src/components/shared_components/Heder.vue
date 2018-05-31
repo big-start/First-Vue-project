@@ -10,6 +10,7 @@
     <div class="search-block">
       <form action="">
         <input type="text" placeholder="Search">
+        <button>Поиск</button>
       </form>
     </div>
   </div>
@@ -59,5 +60,9 @@
   color: #000;
   border: 1px solid #506fa0;
   border-radius: 4px;
+}
+.search-block form {
+  display: flex;
+  flex-direction: column;
 }
 </style>

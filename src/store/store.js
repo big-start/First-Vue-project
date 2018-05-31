@@ -9,9 +9,9 @@ export default new Vuex.Store({
     resultsGenres: [],
     resultsPopular: [],
     resultsUpcoming: [],
-    resultsFilm: []
+    resultsFilm: [],
+    waiterActive: false
   },
-
   mutations: {
     setMoviesGenres (state, data) {
       state.resultsGenres = data.body.genres
@@ -24,6 +24,14 @@ export default new Vuex.Store({
     },
     setFilmDetails (state, data) {
       state.resultsFilm = data.body
+    },
+    startWaiter (state) {
+      state.waiterActive = true
+    },
+    stopWaiter (state) {
+      setTimeout(() => {
+        state.waiterActive = false
+      }, 2000)
     }
   },
   actions: {
@@ -32,8 +40,9 @@ export default new Vuex.Store({
         commit('setMoviesGenres', data)
       })
     },
-    getListPopular ({ commit }) {
-      $ajax.getListPopular().then((data) => {
+    getListPopular ({ commit }, page) {
+      if (!page) page = 1
+      $ajax.getListPopular(page).then((data) => {
         commit('setMoviesPopular', data)
       })
     },
