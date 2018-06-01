@@ -1,6 +1,5 @@
 <template>
   <div class="upcoming">
-  <app-pagination :actionName="'getListUpcoming'"></app-pagination>
     <app-genres></app-genres>
     <div class="upcoming__wrapper">
       <router-link  class="post__upcoming"
@@ -9,7 +8,7 @@
         <film :item="upcoming"></film>
       </router-link>
     </div>
-    <!-- <app-pagination></app-pagination> -->
+    <app-pagination :actionName="'getListUpcoming'"></app-pagination>
   </div>
 </template>
 
