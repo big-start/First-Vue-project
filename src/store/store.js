@@ -10,20 +10,22 @@ export default new Vuex.Store({
     resultsPopular: [],
     resultsUpcoming: [],
     resultsFilm: [],
+    curentPage: 1,
+    totalPages: 0,
     waiterActive: false
-  },
+  },  
   mutations: {
     setMoviesGenres (state, data) {
-      state.resultsGenres = data.body.genres
+      state.resultsGenres = data.genres
     },
     setMoviesPopular (state, data) {
-      state.resultsPopular = data.body.results
+      state.resultsPopular = data.results
     },
     setMoviesUpcoming (state, data) {
-      state.resultsUpcoming = data.body.results
+      state.resultsUpcoming = data.results
     },
     setFilmDetails (state, data) {
-      state.resultsFilm = data.body
+      state.resultsFilm = data
     },
     startWaiter (state) {
       state.waiterActive = true
@@ -31,7 +33,13 @@ export default new Vuex.Store({
     stopWaiter (state) {
       setTimeout(() => {
         state.waiterActive = false
-      }, 2000)
+      }, 1000)
+    },
+    setCurent (state, page) {
+      state.curentPage = page
+    },
+    setTotalPages (state, page) {
+      state.totalPages = page
     }
   },
   actions: {
@@ -41,14 +49,17 @@ export default new Vuex.Store({
       })
     },
     getListPopular ({ commit }, page) {
-      if (!page) page = 1
       $ajax.getListPopular(page).then((data) => {
+        if (!page) page = 1
         commit('setMoviesPopular', data)
+        commit('setTotalPages', data.total_pages)
       })
     },
-    getListUpcoming ({ commit }) {
-      $ajax.getListUpcoming().then((data) => {
+    getListUpcoming ({ commit }, page) {
+      $ajax.getListUpcoming(page).then((data) => {
+        if (!page) page = 1
         commit('setMoviesUpcoming', data)
+        commit('setTotalPages', data.total_pages)
       })
     },
     getFilmDetails ({ commit }, id) {

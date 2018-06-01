@@ -1,6 +1,5 @@
 <template>
   <div class="upcoming">
-  <app-pagination :actionName="'getListUpcoming'"></app-pagination>
     <app-genres></app-genres>
     <div class="upcoming__wrapper">
       <router-link  class="post__upcoming"
@@ -9,15 +8,10 @@
         <film :item="upcoming"></film>
       </router-link>
     </div>
-    <!-- <app-pagination></app-pagination> -->
   </div>
 </template>
 
 <script>
-import Genres from '@/components/shared_components/Genres'
-import Pagination from '@/components/shared_components/Pagination'
-import Film from '@/components/shared_components/Film-component'
-
 export default ({
   computed: {
     upcomings () {
@@ -26,7 +20,6 @@ export default ({
   },
   components: {
     appGenres: Genres,
-    appPagination: Pagination,
     film: Film
   },
   beforeMount () {
@@ -38,18 +31,4 @@ export default ({
 })
 </script>
 <style>
-.upcoming__wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-.post__upcoming {
-  width: 550px;
-  margin: 0 15px 10px;
-  padding: 15px 10px;
-  background: #fff;
-  border: 2px solid #222;
-  border-radius: 10px;
-}
 </style>
