@@ -6,7 +6,7 @@
                  class="post">
       <film :item="popular" class="post__home"></film>
     </router-link>
-    <app-Pagination></app-Pagination>
+    <app-pagination :actionName="'getListPopular'"></app-pagination>
   </div>
 </template>
 
