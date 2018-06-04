@@ -38,5 +38,14 @@ export default {
         reject(error)
       })
     })
+  },
+  getSearchFilm (inputText) {
+    return new Promise((resolve, reject) => {
+      Vue.http.get(`search/movie?${API_KEY}&query=${inputText}`).then((response) => {
+        resolve(response.body)
+      }).catch((error) => {
+        reject(error)
+      })
+    })
   }
 }

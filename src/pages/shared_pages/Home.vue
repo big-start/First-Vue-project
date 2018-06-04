@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <app-genres></app-genres>
+    <search></search>
     <router-link v-for="popular in populars"
                  :to="'/film/' + popular.id"
                  class="post">
@@ -14,6 +15,7 @@
 import Genres from '@/components/shared_components/Genres'
 import Pagination from '@/components/shared_components/Pagination'
 import Film from '@/components/shared_components/Film-component'
+import Search from '@/components/shared_components/Search'
 
 export default ({
   computed: {
@@ -24,7 +26,8 @@ export default ({
   components: {
     appGenres: Genres,
     appPagination: Pagination,
-    film: Film
+    film: Film,
+    search: Search
   },
   beforeMount () {
     this.$store.commit('startWaiter')

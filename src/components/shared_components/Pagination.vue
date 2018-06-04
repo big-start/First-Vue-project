@@ -2,14 +2,12 @@
   <div class="pagination">
     <ul class="pagination__list">
       <li class="pagination__item-prev"
-          @click="prevPage" 
-          :class="{'off': page === 1}">Prev</li>
+          @click="prevPage" :class="{'off': page === 1}">Prev</li>
 
       <li class="pagination__item-curent">{{ page }}&nbsp;/&nbsp;{{ totalPage }}</li>
 
       <li class="pagination__item-next"
-          @click="nextPage" 
-          :class="{'off': page === totalPage}">Next</li>
+          @click="nextPage" :class="{'off': page === totalPage}">Next</li>
     </ul>
   </div>
 </template>
