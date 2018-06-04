@@ -59,21 +59,22 @@ export default ({
     .search-block form {
         display: flex;
         flex-direction: column;
-        width: 300px;
+        width: 315px;
     }
     .search-block form div {
         height: 20px;
         background: #fff;
     }
     .film-post {
-        width: 435px;
-        padding: 15px 7px;
+        width: 300px;
+        height: 40px;
+        padding: 0 7px;
         background: #fff;
         border: 1px solid #000;
         border-radius: 4px;
     }
     .film-post__name {
-        font-size: 25px;
+        font-size: 15px;
         color: #000;
     }
     .film-post__vote_average {
@@ -83,6 +84,8 @@ export default ({
     }
     .film-absolute {
         position: absolute;
+        height: 379px;
+        overflow: hidden;
     }
     .film-post:hover {
         background: #cec4c4;

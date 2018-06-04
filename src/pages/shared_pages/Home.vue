@@ -20,6 +20,9 @@ import Search from '@/components/shared_components/Search'
 export default ({
   computed: {
     populars () {
+      if(this.$store.state.FilmByGenres.length) {
+        return this.$store.state.FilmByGenres
+      }
       return this.$store.state.resultsPopular
     }
   },

@@ -20,6 +20,9 @@ import Film from '@/components/shared_components/Film-component'
 export default ({
   computed: {
     upcomings () {
+      if (this.$store.state.FilmByGenres.length) {
+        return this.$store.state.FilmByGenres
+      }
       return this.$store.state.resultsUpcoming
     }
   },
