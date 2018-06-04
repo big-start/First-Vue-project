@@ -2,7 +2,7 @@
   <div class="genres__list">
     <div class="genres__item"
                  v-for="genre in genres"
-                  @click="ddd(genre)">
+                  @click="genreChallenge(genre)">
       <a class="genres__name">{{ genre.name }}</a>
     </div>
   </div>
@@ -19,7 +19,7 @@ export default ({
     this.$store.dispatch('getListGenres')
   },
   methods: {
-    ddd (genre) {
+    genreChallenge (genre) {
       this.$store.dispatch('getFilmGenres', genre.id)
     }
   }
