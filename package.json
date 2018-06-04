@@ -38,7 +38,9 @@
       "node": true
     },
     "rules": {
-      "no-new": ["off"]
+      "no-new": [
+        "off"
+      ]
     },
     "parserOptions": {
       "parser": "babel-eslint"

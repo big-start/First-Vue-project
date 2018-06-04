@@ -7,12 +7,6 @@
       <router-link class="menu__item" tag="a" to="/">Home</router-link>
       <router-link class="menu__item" tag="a" to="/upcoming">Upcoming</router-link>
     </div>
-    <div class="search-block">
-      <form action="">
-        <input type="text" placeholder="Search">
-        <button>Поиск</button>
-      </form>
-    </div>
   </div>
 </template>
 
@@ -53,16 +47,5 @@
 }
 .menu_item:last-child {
   margin: 0;
-}
-.search-block input {
-  height: 25px;
-  padding: 0 10px;
-  color: #000;
-  border: 1px solid #506fa0;
-  border-radius: 4px;
-}
-.search-block form {
-  display: flex;
-  flex-direction: column;
 }
 </style>

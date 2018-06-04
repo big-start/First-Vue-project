@@ -12,8 +12,9 @@ export default new Vuex.Store({
     resultsFilm: [],
     curentPage: 1,
     totalPages: 0,
-    waiterActive: false
-  },  
+    waiterActive: false,
+    search: []
+  },
   mutations: {
     setMoviesGenres (state, data) {
       state.resultsGenres = data.genres
@@ -40,6 +41,9 @@ export default new Vuex.Store({
     },
     setTotalPages (state, page) {
       state.totalPages = page
+    },
+    setSearchFilm (state, data) {
+      state.search = data.results
     }
   },
   actions: {
@@ -65,6 +69,11 @@ export default new Vuex.Store({
     getFilmDetails ({ commit }, id) {
       $ajax.getFilm(id).then((data) => {
         commit('setFilmDetails', data)
+      })
+    },
+    getSearchFilm ({ commit }, inputText) {
+      $ajax.getSearchFilm(inputText).then((data) => {
+        commit('setSearchFilm', data)
       })
     }
   }
