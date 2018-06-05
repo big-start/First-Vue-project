@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="post__img">
-    <img :src="imgUrl(item.backdrop_path)"/>
+    <img :src="item.backdrop_path | imgTest"/>
   </div>
   <div class="post-content">
     <span class="post-content__name upcoming__post-name">{{ item.original_title }}</span>
@@ -12,12 +12,7 @@
 </template>
 <script>
 export default ({
-  props: ['item'],
-  methods: {
-    imgUrl (path) {
-      return 'https://image.tmdb.org/t/p/w500/' + path
-    }
-  }
+  props: ['item']
 })
 </script>
 

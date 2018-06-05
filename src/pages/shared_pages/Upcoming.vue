@@ -1,6 +1,5 @@
 <template>
   <div class="upcoming">
-    <app-genres></app-genres>
     <div class="upcoming__wrapper">
       <router-link  class="post__upcoming"
                     v-for="upcoming in upcomings"
@@ -20,9 +19,6 @@ import Film from '@/components/shared_components/Film-component'
 export default ({
   computed: {
     upcomings () {
-      if (this.$store.state.FilmByGenres.length) {
-        return this.$store.state.FilmByGenres
-      }
       return this.$store.state.resultsUpcoming
     }
   },
@@ -33,6 +29,7 @@ export default ({
   },
   beforeMount () {
     this.$store.commit('startWaiter')
+    this.$store.commit('serPage')
     this.$store.dispatch('getListUpcoming').then(() => {
       this.$store.commit('stopWaiter')
     })
