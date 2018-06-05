@@ -7,7 +7,7 @@
                  class="post">
       <film :item="popular" class="post__home"></film>
     </router-link>
-    <app-pagination :actionName="'getListPopular'"></app-pagination>
+    <app-pagination :actionName="itemName"></app-pagination>
   </div>
 </template>
 
@@ -20,10 +20,19 @@ import Search from '@/components/shared_components/Search'
 export default ({
   computed: {
     populars () {
-      if (this.$store.state.FilmByGenres.length) {
+      if (this.isFiltration) {
         return this.$store.state.FilmByGenres
       }
       return this.$store.state.resultsPopular
+    },
+    itemName () {
+      if (this.isFiltration) {
+        return 'getFilmsByGenre'
+      }
+      return 'getListPopular'
+    },
+    isFiltration () {
+      return this.$store.state.FilmByGenres.length
     }
   },
   components: {
@@ -34,6 +43,7 @@ export default ({
   },
   beforeMount () {
     this.$store.commit('startWaiter')
+    this.$store.commit('serPage')
     this.$store.dispatch('getListPopular').then(() => {
       this.$store.commit('stopWaiter')
     })

@@ -2,7 +2,7 @@
 <div class="film-details">
   <div class="film-details__inner">
     <div class="film-details__img">
-      <img :src="imgUrl(filmDetail.backdrop_path)"/>
+      <img :src="filmDetail.backdrop_path | imgTest">
     </div>
     <div class="content-film">
       <span class="film-details__name">{{ filmDetail.original_title }}</span>
@@ -20,12 +20,6 @@ export default ({
   computed: {
     filmDetail () {
       return this.$store.state.resultsFilm
-    }
-  },
-  methods: {
-    imgUrl (path) {
-      this.$store.commit('imgUrl', path)
-      return this.$store.state.resultsIgm
     }
   },
   beforeMount () {

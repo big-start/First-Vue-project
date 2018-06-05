@@ -10,6 +10,12 @@ Vue.http.options.root = 'https://api.themoviedb.org/3/'
 
 Vue.config.productionTip = false
 
+Vue.filter('imgTest', function (value) {
+  if (!value) return ''
+  value = value.toString()
+  return 'https://image.tmdb.org/t/p/w500/' + value
+})
+
 new Vue({
   el: '#app',
   router,

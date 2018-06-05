@@ -48,9 +48,9 @@ export default {
       })
     })
   },
-  getFilmsByGenre (genreId) {
+  getFilmsByGenre (genreId, page) {
     return new Promise((resolve, reject) => {
-      Vue.http.get(`genre/${genreId}/movies?${API_KEY}`).then((response) => {
+      Vue.http.get(`genre/${genreId}/movies?${API_KEY}&page=${page}`).then((response) => {
         resolve(response.body)
       }).catch((error) => {
         reject(error)

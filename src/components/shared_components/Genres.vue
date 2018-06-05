@@ -24,8 +24,12 @@ export default ({
   },
   methods: {
     getFilmsByGenre (genre) {
-      this.$store.dispatch('getFilmsByGenre', genre.id)
-      this.$store.commit('setActiveBtnId', genre.id)
+      this.$store.commit('startWaiter')
+      this.$store.commit('serPage')
+      this.$store.commit('setActiveGenre', genre.id)
+      this.$store.dispatch('getFilmsByGenre').then(() => {
+        this.$store.commit('stopWaiter')
+      })
     }
   }
 })
