@@ -21,11 +21,6 @@ export default new Router({
       path: '/film/:id',
       name: 'FilmDetails',
       component: () => import('@/pages/shared_pages/FilmDetails')
-    },
-    {
-      path: '/genres',
-      name: 'GenresFilm',
-      component: () => import('@/pages/shared_pages/GenresFilm')
     }
   ]
 })

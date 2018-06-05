@@ -1,11 +1,11 @@
 <template>
   <div class="menu_logo">
     <div class="logo">
-      <router-link class="logo__item" tag="a" to="/" >Logo</router-link>
+      <router-link class="logo__item" tag="a" to="/">Logo</router-link>
     </div>
     <div class="menu">
-      <router-link class="menu__item" tag="a" to="/">Home</router-link>
-      <router-link class="menu__item" tag="a" to="/upcoming">Upcoming</router-link>
+      <router-link active-class="active-link" class="menu__item" tag="a" to="/" exact>Home</router-link>
+      <router-link active-class="active-link" class="menu__item" tag="a" to="/upcoming">Upcoming</router-link>
     </div>
   </div>
 </template>
@@ -47,5 +47,9 @@
 }
 .menu_item:last-child {
   margin: 0;
+}
+.active-link{
+  color: #000;
+  cursor: default;
 }
 </style>

@@ -13,7 +13,10 @@ export default new Vuex.Store({
     curentPage: 1,
     totalPages: 0,
     waiterActive: false,
-    search: []
+    search: [],
+    FilmByGenres: [],
+    activeBtnId: '',
+    resultsIgm: ''
   },
   mutations: {
     setMoviesGenres (state, data) {
@@ -44,6 +47,15 @@ export default new Vuex.Store({
     },
     setSearchFilm (state, data) {
       state.search = data.results
+    },
+    setFilmsByGenre (state, data) {
+      state.FilmByGenres = data.results
+    },
+    setActiveBtnId (state, id) {
+      state.activeBtnId = id
+    },
+    imgUrl (state, path) {
+      state.resultsIgm = 'https://image.tmdb.org/t/p/w500/' + path
     }
   },
   actions: {
@@ -74,6 +86,11 @@ export default new Vuex.Store({
     getSearchFilm ({ commit }, inputText) {
       $ajax.getSearchFilm(inputText).then((data) => {
         commit('setSearchFilm', data)
+      })
+    },
+    getFilmsByGenre ({ commit }, genreId) {
+      $ajax.getFilmsByGenre(genreId).then((data) => {
+        commit('setFilmsByGenre', data)
       })
     }
   }
