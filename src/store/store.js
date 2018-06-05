@@ -14,7 +14,9 @@ export default new Vuex.Store({
     totalPages: 0,
     waiterActive: false,
     search: [],
-    FilmByGenres: []
+    FilmByGenres: [],
+    activeBtnId: '',
+    resultsIgm: ''
   },
   mutations: {
     setMoviesGenres (state, data) {
@@ -48,6 +50,12 @@ export default new Vuex.Store({
     },
     setFilmsByGenre (state, data) {
       state.FilmByGenres = data.results
+    },
+    setActiveBtnId (state, id) {
+      state.activeBtnId = id
+    },
+    imgUrl (state, path) {
+      state.resultsIgm = 'https://image.tmdb.org/t/p/w500/' + path
     }
   },
   actions: {

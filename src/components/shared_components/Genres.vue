@@ -1,8 +1,9 @@
 <template>
   <div class="genres__list">
     <div class="genres__item"
-                v-for="genre in genres"
-                @click="getFilmsByGenre(genre)">
+         v-for="genre in genres"
+         @click="getFilmsByGenre(genre)"
+         :class="{'active': activeBtnId === genre.id}">
       <a class="genres__name">{{ genre.name }}</a>
     </div>
   </div>
@@ -14,8 +15,8 @@ export default ({
     genres () {
       return this.$store.state.resultsGenres
     },
-    waiterStatus () {
-      return this.$store.state.waiterActive
+    activeBtnId () {
+      return this.$store.state.activeBtnId
     }
   },
   beforeMount () {
@@ -24,6 +25,7 @@ export default ({
   methods: {
     getFilmsByGenre (genre) {
       this.$store.dispatch('getFilmsByGenre', genre.id)
+      this.$store.commit('setActiveBtnId', genre.id)
     }
   }
 })
@@ -49,6 +51,7 @@ export default ({
   cursor: pointer;
 }
 .active {
-  background: #ffffff;
+  background: #34b3d3;
+  cursor: default;
 }
 </style>

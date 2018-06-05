@@ -24,13 +24,13 @@ export default ({
     }
   },
   methods: {
-    nextPage (page) {
+    nextPage () {
       if (this.page < this.totalPage) {
         this.$store.commit('setCurent', this.page + 1)
         this.$store.dispatch(this.actionName, this.page)
       }
     },
-    prevPage (page) {
+    prevPage () {
       if (this.page > 1) {
         this.$store.commit('setCurent', this.page - 1)
         this.$store.dispatch(this.actionName, this.page)

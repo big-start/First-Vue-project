@@ -85,7 +85,7 @@ export default ({
     .film-absolute {
         position: absolute;
         height: 379px;
-        overflow: hidden;
+        overflow: auto;
     }
     .film-post:hover {
         background: #cec4c4;
