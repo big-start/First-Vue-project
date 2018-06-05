@@ -46,7 +46,7 @@ export default new Vuex.Store({
     setSearchFilm (state, data) {
       state.search = data.results
     },
-    setFilmGenres (state, data) {
+    setFilmsByGenre (state, data) {
       state.FilmByGenres = data.results
     }
   },
@@ -80,9 +80,9 @@ export default new Vuex.Store({
         commit('setSearchFilm', data)
       })
     },
-    getFilmGenres ({ commit }, genreId) {
-      $ajax.getFilmGenres(genreId).then((data) => {
-        commit('setFilmGenres', data)
+    getFilmsByGenre ({ commit }, genreId) {
+      $ajax.getFilmsByGenre(genreId).then((data) => {
+        commit('setFilmsByGenre', data)
       })
     }
   }

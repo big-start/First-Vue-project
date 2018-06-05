@@ -14,29 +14,29 @@
 
 <script>
 export default ({
-props: ['actionName'],
-computed: {
+  props: ['actionName'],
+  computed: {
     page () {
       return this.$store.state.curentPage
     },
     totalPage () {
       return this.$store.state.totalPages
     }
-},
-methods: {
-  nextPage (page) {
-    if (this.page < this.totalPage){
-      this.$store.commit('setCurent', this.page + 1)
-      this.$store.dispatch(this.actionName, this.page)
-    }
   },
-  prevPage(page) {
-    if (this.page > 1){
-      this.$store.commit('setCurent', this.page - 1)
-      this.$store.dispatch(this.actionName, this.page)
+  methods: {
+    nextPage (page) {
+      if (this.page < this.totalPage) {
+        this.$store.commit('setCurent', this.page + 1)
+        this.$store.dispatch(this.actionName, this.page)
+      }
+    },
+    prevPage (page) {
+      if (this.page > 1) {
+        this.$store.commit('setCurent', this.page - 1)
+        this.$store.dispatch(this.actionName, this.page)
+      }
     }
   }
-}
 })
 </script>
 
