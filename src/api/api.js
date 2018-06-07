@@ -56,5 +56,14 @@ export default {
         reject(error)
       })
     })
+  },
+  getRecommendations (id) {
+    return new Promise((resolve, reject) => {
+      Vue.http.get(`movie/${id}/recommendations?${API_KEY}`).then((response) => {
+        resolve(response.body)
+      }).catch((error) => {
+        reject(error)
+      })
+    })
   }
 }
