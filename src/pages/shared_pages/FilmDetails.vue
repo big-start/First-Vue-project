@@ -1,34 +1,63 @@
 <template>
-<div class="film-details">
-  <div class="film-details__inner">
-    <div class="film-details__img">
-      <img :src="filmDetail.backdrop_path | imgTest">
+  <div class="film-details__wrapper">
+    <div class="film-details">
+      <div class="film-details__inner">
+        <div class="film-details__img">
+          <img :src="filmDetail.backdrop_path | imgTest">
+        </div>
+        <div class="content-film">
+          <span class="film-details__name">{{ filmDetail.original_title }}</span>
+          <span class="film-details__vote-average">{{ filmDetail.vote_average }}</span>
+          <span class="film-details__genres" v-for="item in filmDetail.genres">{{ item.name }}</span>
+          <span class="film-details__release">{{ filmDetail.release_date }}</span>
+        </div>
+      </div>
+      <p class="film-details__overview">{{ filmDetail.overview }}</p>
     </div>
-    <div class="content-film">
-      <span class="film-details__name">{{ filmDetail.original_title }}</span>
-      <span class="film-details__vote-average">{{ filmDetail.vote_average }}</span>
-      <span class="film-details__genres" v-for="item in filmDetail.genres">{{ item.name }}</span>
-      <span class="film-details__release">{{ filmDetail.release_date }}</span>
+    <div class="recommendations-films">
+      <div class="recommendations-films__inner"
+           v-for="film in recommendationsFilms"
+           :key="film.id"
+           @click="getFilmDetails(film.id)">
+        <div class="recommendations-film__img">
+          <img :src="film.backdrop_path | imgTest"/>
+        </div>
+        <span class="recommendations-film__title">{{ film.original_title }}</span>
+      </div>
     </div>
   </div>
-  <p class="film-details__overview">{{ filmDetail.overview }}</p>
-</div>
 </template>
 
 <script>
+import Film from '@/components/shared_components/Film-component'
+
 export default ({
   computed: {
     filmDetail () {
       return this.$store.state.resultsFilm
+    },
+    recommendationsFilms () {
+      return this.$store.state.recommendations
     }
   },
   beforeMount () {
     this.$store.commit('startWaiter')
+    this.$store.commit('setIdFilm', this.$route.params.id)
+    this.$store.dispatch('getRecommendations')
     this.$store.dispatch('getFilmDetails', this.$route.params.id).then(() => {
       this.$store.commit('stopWaiter')
     })
+  },
+  methods: {
+    getFilmDetails (id) {
+      this.$router.push({name: 'FilmDetails', params: { id: id }})
+      document.location.reload(true)
+    }
+  },
+  components: {
+    film: Film
   }
-})
+})// '/film/' + film.id
 </script>
 <style>
 .film-details {
@@ -73,5 +102,29 @@ export default ({
   right: 0;
   padding: 6px 15px;
   color: #0f0;
+}
+.recommendations-films {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 1200px;
+  margin: 0 auto;
+  padding-top: 45px;
+}
+.recommendations-films__inner {
+  position: relative;
+  margin-bottom: 5px;
+}
+.recommendations-film__img img {
+  width: 380px;
+}
+.recommendations-film__title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 8px 0;
+  color: #fff;
+  text-align: center;
+  background: #000;
 }
 </style>

@@ -15,7 +15,10 @@ export default new Vuex.Store({
     waiterActive: false,
     search: [],
     FilmByGenres: [],
-    activeGenreId: ''
+    activeGenreId: '',
+    recommendationById: '',
+    recommendations: [],
+    idFilm: ''
   },
   mutations: {
     setMoviesGenres (state, data) {
@@ -53,8 +56,14 @@ export default new Vuex.Store({
     setActiveGenre (state, id) {
       state.activeGenreId = id
     },
-    serPage (state) {
+    setPage (state) {
       state.curentPage = 1
+    },
+    setRecommendations (state, data) {
+      state.recommendations = data.results
+    },
+    setIdFilm (state, id) {
+      state.idFilm = id
     }
   },
   actions: {
@@ -92,6 +101,11 @@ export default new Vuex.Store({
       $ajax.getFilmsByGenre(state.activeGenreId, page).then((data) => {
         commit('setFilmsByGenre', data)
         commit('setTotalPages', data.total_pages)
+      })
+    },
+    getRecommendations ({ state, commit}) {
+      $ajax.getRecommendations(state.idFilm).then((data) => {
+        commit('setRecommendations', data)
       })
     }
   }

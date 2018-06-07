@@ -43,7 +43,7 @@ export default ({
   },
   beforeMount () {
     this.$store.commit('startWaiter')
-    this.$store.commit('serPage')
+    this.$store.commit('setPage')
     this.$store.dispatch('getListPopular').then(() => {
       this.$store.commit('stopWaiter')
     })

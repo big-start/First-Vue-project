@@ -29,7 +29,7 @@ export default ({
   },
   beforeMount () {
     this.$store.commit('startWaiter')
-    this.$store.commit('serPage')
+    this.$store.commit('setPage')
     this.$store.dispatch('getListUpcoming').then(() => {
       this.$store.commit('stopWaiter')
     })
