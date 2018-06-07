@@ -29,8 +29,6 @@
 </template>
 
 <script>
-import Film from '@/components/shared_components/Film-component'
-
 export default ({
   computed: {
     filmDetail () {
@@ -42,8 +40,7 @@ export default ({
   },
   beforeMount () {
     this.$store.commit('startWaiter')
-    this.$store.commit('setIdFilm', this.$route.params.id)
-    this.$store.dispatch('getRecommendations')
+    this.$store.dispatch('getRecommendations', this.$route.params.id)
     this.$store.dispatch('getFilmDetails', this.$route.params.id).then(() => {
       this.$store.commit('stopWaiter')
     })
@@ -51,13 +48,10 @@ export default ({
   methods: {
     getFilmDetails (id) {
       this.$router.push({name: 'FilmDetails', params: { id: id }})
-      document.location.reload(true)
+      document.location.reload()
     }
-  },
-  components: {
-    film: Film
   }
-})// '/film/' + film.id
+})
 </script>
 <style>
 .film-details {
